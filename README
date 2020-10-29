@@ -1,0 +1,37 @@
+Pinball Disc Room
+
+How did you end up in this pinball of death. The blades
+teleport in. Dodge the discs to survive. Knock down the
+popups to open the passage way but beware you can't control
+when you exit.
+
+Arrow keys to move. Space starts the game. Escape
+quits the game. Tab toggles full screen.
+
+LICENSE file covers godot code.
+
+Liberation font is under SIL Open Font License (OFL).
+
+Death sounds are by HaelDB and licensed under CC0.
+https://opengameart.org/content/male-gruntyelling-sounds
+
+Spawn sounds are by bart and licensed under CC0.
+https://opengameart.org/content/31-pings-and-metal-filing-sounds
+
+Disc is from Industrial Traps 2D - Sidescroller by LarryIRL and licensed under CC0.
+https://opengameart.org/content/industrial-traps-2d-sidescroller
+
+Effect on disc appearing is from Radial lightning effect by 13rice and licensed uder CC0.
+https://opengameart.org/content/radial-lightning-effect
+
+Player is scaled up from low-pixel fighters (top-view) by Lasse Öörni & Olli Niemitalo (BOFH graphics team) and licensed under CC-BY 3.0
+https://opengameart.org/content/low-pixel-fighters-top-view
+
+Blood are cut from Blood Splatter by ExileGL and licensed under CC0.
+https://opengameart.org/content/blood-splatter
+
+Sparks are from Hit Animation | Frame by frame by Sinestesia and licensed under CC0.
+https://opengameart.org/content/hit-animation-frame-by-frame
+
+new_ball.wav and award.wav are from Professor Pinball's Castle and licensed under MIT.
+https://github.com/dbisdorf/professor-pinball

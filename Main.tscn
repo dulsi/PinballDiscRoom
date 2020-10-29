@@ -1,0 +1,270 @@
+[gd_scene load_steps=36 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://art/background.png" type="Texture" id=2]
+[ext_resource path="res://Disc.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Main.gd" type="Script" id=4]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Bar.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Popup.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Camera2D.gd" type="Script" id=8]
+[ext_resource path="res://DiscEjector.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Paddle1.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Transporter.tscn" type="PackedScene" id=11]
+[ext_resource path="res://art/background2.png" type="Texture" id=12]
+[ext_resource path="res://art/top.png" type="Texture" id=13]
+[ext_resource path="res://Paddle2.tscn" type="PackedScene" id=14]
+[ext_resource path="res://PopupTimer.gd" type="Script" id=15]
+[ext_resource path="res://SecretPath.gd" type="Script" id=16]
+[ext_resource path="res://art/button/button2_lit.png" type="Texture" id=17]
+[ext_resource path="res://art/button/button10_unlit.png" type="Texture" id=18]
+[ext_resource path="res://art/button/button15_unlit.png" type="Texture" id=19]
+[ext_resource path="res://art/button/button7_lit.png" type="Texture" id=20]
+[ext_resource path="res://art/button/button5_unlit.png" type="Texture" id=21]
+[ext_resource path="res://art/button/button2_unlit.png" type="Texture" id=22]
+[ext_resource path="res://art/button/button5_lit.png" type="Texture" id=23]
+[ext_resource path="res://art/button/button10_lit.png" type="Texture" id=24]
+[ext_resource path="res://art/button/button7_unlit.png" type="Texture" id=25]
+[ext_resource path="res://art/button/button15_lit.png" type="Texture" id=26]
+[ext_resource path="res://sound/award.wav" type="AudioStream" id=27]
+[ext_resource path="res://sound/new_ball.wav" type="AudioStream" id=28]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 33, 22.4085 )
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -0.178238, 234.641, 0, 0, 0, 0, -28.7709, 235.263, 0, 0, 0, 0, -34.9867, 228.425, 0, 0, 0, 0, -33.7435, -25.5589, 0, 0, 0, 0, -28.1493, -33.6395, 0, 0, 0, 0, 77.5192, -34.8826, 0, 0, 0, 0, 86.2213, -26.8021, 0, 0, 0, 0, 86.8429, -1.93892 )
+}
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 24 ) ],
+"loop": true,
+"name": "lit",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "unlit",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 26 ) ],
+"loop": true,
+"name": "lit",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ) ],
+"loop": true,
+"name": "unlit",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 23 ) ],
+"loop": true,
+"name": "lit",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ) ],
+"loop": true,
+"name": "unlit",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "lit",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 25 ) ],
+"loop": true,
+"name": "unlit",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "lit",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ) ],
+"loop": true,
+"name": "unlit",
+"speed": 5.0
+} ]
+
+[node name="Main" type="Node"]
+script = ExtResource( 4 )
+Disc = ExtResource( 3 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 160, 230 )
+
+[node name="MobTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="StartPosition" type="Position2D" parent="."]
+position = Vector2( 160, 230 )
+
+[node name="Top" type="Sprite" parent="."]
+position = Vector2( 190, 144 )
+z_index = 4
+texture = ExtResource( 13 )
+
+[node name="Background" type="Sprite" parent="."]
+z_index = -1
+texture = ExtResource( 2 )
+centered = false
+offset = Vector2( -60, -60 )
+
+[node name="Sprite" type="Sprite" parent="Background"]
+position = Vector2( 381, 161 )
+z_index = -1
+texture = ExtResource( 12 )
+
+[node name="DiscPosition" type="Position2D" parent="."]
+position = Vector2( 160, 160 )
+
+[node name="Transporter" parent="DiscPosition" instance=ExtResource( 11 )]
+
+[node name="HUD" parent="." instance=ExtResource( 5 )]
+
+[node name="Discs" type="Node" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( -160, -20 )
+anchor_mode = 0
+current = true
+script = ExtResource( 8 )
+
+[node name="DiscEjector" parent="." instance=ExtResource( 9 )]
+position = Vector2( 380, 325 )
+
+[node name="Transporter" parent="." instance=ExtResource( 11 )]
+position = Vector2( 380, 32 )
+
+[node name="Wall" type="RigidBody2D" parent="."]
+position = Vector2( 380, -21 )
+collision_layer = 32
+collision_mask = 32
+mass = 1000.0
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+shape = SubResource( 1 )
+
+[node name="PaddleBR1" parent="." instance=ExtResource( 10 )]
+position = Vector2( 277, 328 )
+
+[node name="PaddleBR2" parent="." instance=ExtResource( 14 )]
+position = Vector2( 328, 277 )
+rotation = -1.5708
+
+[node name="PaddleBL1" parent="." instance=ExtResource( 10 )]
+position = Vector2( -8, 276 )
+rotation = 1.5708
+
+[node name="PaddleBL2" parent="." instance=ExtResource( 14 )]
+position = Vector2( 43, 328 )
+
+[node name="PaddleTL1" parent="." instance=ExtResource( 10 )]
+position = Vector2( 43, -8 )
+rotation = 3.14159
+
+[node name="PaddleTL2" parent="." instance=ExtResource( 14 )]
+position = Vector2( -8, 43 )
+rotation = 1.5708
+
+[node name="PaddleTR1" parent="." instance=ExtResource( 10 )]
+position = Vector2( 328, 43 )
+rotation = -1.5708
+
+[node name="PaddleTR2" parent="." instance=ExtResource( 14 )]
+position = Vector2( 277, -8 )
+rotation = 3.14159
+
+[node name="PaddleTimer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[node name="PopupTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+script = ExtResource( 15 )
+
+[node name="Popup" parent="PopupTimer" instance=ExtResource( 7 )]
+position = Vector2( 199, 59.0001 )
+
+[node name="Popup2" parent="PopupTimer" instance=ExtResource( 7 )]
+position = Vector2( 233.001, 68.0002 )
+
+[node name="Popup3" parent="PopupTimer" instance=ExtResource( 7 )]
+position = Vector2( 265.001, 78.0002 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="PopupTimer"]
+stream = ExtResource( 28 )
+
+[node name="SecretPath" type="Path2D" parent="."]
+curve = SubResource( 2 )
+script = ExtResource( 16 )
+
+[node name="Bar1" parent="SecretPath" instance=ExtResource( 6 )]
+position = Vector2( -2, 225 )
+
+[node name="Bar2" parent="SecretPath" instance=ExtResource( 6 )]
+position = Vector2( 97, -2 )
+rotation = 1.5708
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SecretPath"]
+stream = ExtResource( 27 )
+
+[node name="Button10" type="AnimatedSprite" parent="."]
+position = Vector2( 190, 274 )
+z_index = -1
+frames = SubResource( 3 )
+animation = "unlit"
+
+[node name="Button15" type="AnimatedSprite" parent="."]
+position = Vector2( 220, 274 )
+z_index = -1
+frames = SubResource( 4 )
+animation = "unlit"
+
+[node name="Button5" type="AnimatedSprite" parent="."]
+position = Vector2( 130, 274 )
+z_index = -1
+frames = SubResource( 5 )
+animation = "unlit"
+
+[node name="Button7" type="AnimatedSprite" parent="."]
+position = Vector2( 160, 274 )
+z_index = -1
+frames = SubResource( 6 )
+animation = "unlit"
+
+[node name="Button2" type="AnimatedSprite" parent="."]
+position = Vector2( 100, 274 )
+z_index = -1
+frames = SubResource( 7 )
+animation = "unlit"
+[connection signal="hit" from="Player" to="." method="game_over"]
+[connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
+[connection signal="start_game" from="HUD" to="." method="new_game"]
+[connection signal="transport" from="DiscEjector" to="." method="_on_DiscEjector_transport"]
+[connection signal="timeout" from="PaddleTimer" to="." method="_on_PaddleTimer_timeout"]
+[connection signal="popups_hit" from="PopupTimer" to="." method="_on_PopupTimer_popups_hit"]
+[connection signal="timeout" from="PopupTimer" to="PopupTimer" method="_on_PopupTimer_timeout"]

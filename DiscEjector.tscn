@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://art/plunger.png" type="Texture" id=1]
+[ext_resource path="res://DiscEjector.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 23.202, 5 )
+
+[node name="DiscEjector" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Plunger" type="RigidBody2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+mass = 102.041
+gravity_scale = 0.0
+linear_damp = 0.0
+angular_damp = 0.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Plunger"]
+position = Vector2( -1, -2 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plunger"]
+position = Vector2( -1, -56 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
