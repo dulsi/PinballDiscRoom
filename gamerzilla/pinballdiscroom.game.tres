@@ -1,0 +1,22 @@
+{
+	"shortname": "pinballdiscroom",
+	"name": "Pinball Disc Room",
+	"image": "res://gamerzilla/pinball.png.res",
+	"version": "1",
+	"trophy": [
+		{
+			"trophy_name": "Survive 10", 
+			"trophy_desc": "Survive for 10 seconds", 
+			"max_progress": "0",
+			"trueimage": "res://gamerzilla/survive_10_1.png.res",
+			"falseimage": "res://gamerzilla/survive_10_0.png.res"
+		},
+		{
+			"trophy_name": "Safe Passage",
+			"trophy_desc": "Unlock and use the tunnel",
+			"max_progress": "0", 
+			"trueimage": "res://gamerzilla/safe_passage1.png.res",
+			"falseimage": "res://gamerzilla/safe_passage0.png.res"
+		}
+	]
+}

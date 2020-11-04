@@ -105,6 +105,7 @@ func checkOpenPaths(loc):
 	for item in paths:
 		var closest = item.curve.get_closest_point(loc)
 		if closest.distance_to(loc) < 20:
+			get_parent().setSecretPassageTrophy()
 			secretPath = item
 			secretOffset = item.curve.get_closest_offset(closest)
 			if secretOffset == 0:

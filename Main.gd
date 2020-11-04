@@ -7,9 +7,13 @@ var room_filler
 var scoring = false
 var paddles = ["PaddleBR1", "PaddleBR2", "PaddleBL1", "PaddleBL2", "PaddleTL1", "PaddleTL2", "PaddleTR1", "PaddleTR2"]
 var secretPath = ["SecretPath"]
+var gzilla = preload("res://gdgamerzillascript.gdns").new()
 
 func _ready():
 	randomize()
+	if (gzilla):
+		print(gzilla.start(false, OS.get_user_data_dir()))
+		gzilla.setGameFromFile("res://gamerzilla/pinballdiscroom.game.tres", "")
 
 
 func _process(delta):
@@ -24,6 +28,8 @@ func _process(delta):
 			$Button7.animation = "lit"
 		if orig_score < 10 && score >= 10:
 			$Button10.animation = "lit"
+			if (gzilla):
+				gzilla.setTrophy("Survive 10")
 		if orig_score < 15 && score >= 15:
 			$Button15.animation = "lit"
 		$HUD.update_score(score)
@@ -61,14 +67,12 @@ func new_game():
 	$Button10.animation = "unlit"
 	$Button15.animation = "unlit"
 	$HUD.update_score(score)
-#	$HUD.show_message("Get Ready")
 	$HUD.hide_message()
 	$Transporter.get_node("AnimatedSprite").play()
 	$DiscPosition.get_node("Transporter").get_node("AnimatedSprite").play()
 
 
 func _on_StartTimer_timeout():
-	#$MobTimer.start()
 	scoring = true
 
 
@@ -106,3 +110,7 @@ func getOpenPaths():
 		if get_node(item).is_open:
 			answer.push_back(get_node(item))
 	return answer
+
+func setSecretPassageTrophy():
+	if (gzilla):
+		gzilla.setTrophy("Safe Passage")
