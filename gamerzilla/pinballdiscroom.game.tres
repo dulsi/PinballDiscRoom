@@ -2,7 +2,7 @@
 	"shortname": "pinballdiscroom",
 	"name": "Pinball Disc Room",
 	"image": "res://gamerzilla/pinball.png.res",
-	"version": "1",
+	"version": "3",
 	"trophy": [
 		{
 			"trophy_name": "Survive 10", 
