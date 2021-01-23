@@ -4,4 +4,4 @@
 entry/Windows.64 = "res://gdnative/windows/libgdgamerzilla.dll"
 entry/X11.64 = "res://gdnative/linuxbsd/libgdgamerzilla.so"
 dependency/Windows.64 = [ "res://gdnative/windows/gamerzilla.dll", "res://gdnative/windows/jansson.dll", "res://gdnative/windows/libcurl.dll", "res://gdnative/windows/zlib1.dll" ]
-dependency/X11.64 = [  ]
+dependency/X11.64 = [ "res://gdnative/linuxbsd/libgamerzilla.so.0" ]
